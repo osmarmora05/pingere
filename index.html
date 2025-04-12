@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./src/js/lib/jspdf.min.js"></script>
+  <script src="./src/js/lib/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="./src/css/lib/driver.css" />
+
+  <script type="module" src="./src/js/main.js" defer></script>
+  <link rel="stylesheet" href="./src/css/styles.css" />
+
+  <link rel="icon" type="image/png" href="./src/assets/favicon.svg" />
+  <title>Pingere - etch-a-sketch</title>
+</head>
+
+<body>
+  <div id="container">
+    <header class="header">
+      <div class="header__box">
+        <div class="header__box-title">
+          <h1 class="header__title">Pingere</h1>
+          <svg class="header__wave" viewBox="0 0 455.555 48">
+            <path
+              d="M0 2c37.962 0 37.962 44 75.924 44s37.962-44 75.924-44 37.962 44 75.923 44c37.962 0 37.962-44 75.925-44 37.965 0 37.965 44 75.929 44s37.965-44 75.93-44" />
+            <path
+              d="M0 2c37.962 0 37.962 44 75.924 44s37.962-44 75.924-44 37.962 44 75.923 44c37.962 0 37.962-44 75.925-44 37.965 0 37.965 44 75.929 44s37.965-44 75.93-44" />
+          </svg>
+        </div>
+        <div class="toolbox">
+          <div class="toolbox__tools">
+            <div class="toolbox__select-tool">
+              <button id="toolbox__pencil-btn" class="select-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+                  <path d="M13.5 6.5l4 4" />
+                </svg>
+              </button>
+              <div id="toolbox__pencil-label" class="tooltip" role="tooltip" data-color="#000">
+                <p>Paint<kbd>P</kbd></p>
+              </div>
+              <button id="toolbox__eraser-btn" class="select-button" data-color="#fff">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-eraser">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M19 20h-10.5l-4.21 -4.3a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9.2 9.3" />
+                  <path d="M18 13.3l-6.3 -6.3" />
+                </svg>
+              </button>
+              <div id="toolbox__eraser-label" class="tooltip" role="tooltip" data-color="#fff">
+                <p>Eraser<kbd>Space</kbd></p>
+              </div>
+              <button id="toolbox__rainbow-btn" class="select-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-rainbow">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M22 17c0 -5.523 -4.477 -10 -10 -10s-10 4.477 -10 10" />
+                  <path d="M18 17a6 6 0 1 0 -12 0" />
+                  <path d="M14 17a2 2 0 1 0 -4 0" />
+                </svg>
+              </button>
+              <div id="toolbox__rainbow-label" class="tooltip" role="tooltip" data-color="rainbow">
+                <p>Rainbow<kbd>R</kbd></p>
+              </div>
+              <button id="toolbox__pencil-hover-btn" class="select-button">
+                <svg width="23" xmlns="http://www.w3.org/2000/svg" height="23" fill="none">
+                  <g style="fill: #000" fill="none">
+                    <rect width="23" height="23" style="fill: none" ry="0" rx="0" class="fills" />
+                    <rect width="23" height="23" style="fill: none" ry="0" rx="0" class="fills" />
+                    <rect width="12.937" height="18.688" x="5.031" style="fill: none" ry="6.469" rx="6.469" y="2.156"
+                      class="fills" />
+                    <g stroke-linejoin="round" class="strokes">
+                      <rect rx="6.469" ry="6.469" x="5.031" y="2.156" width="12.937" height="18.688" style="
+                            fill: none;
+                            stroke-width: 1.5;
+                            stroke: #000;
+                            stroke-opacity: 1;
+                          " class="stroke-shape" />
+                    </g>
+                    <path d="M11.5 10.063V2.156" style="fill: none" class="fills" />
+                    <g stroke-linejoin="round" class="strokes">
+                      <path d="M11.5 10.063V2.156" style="
+                            fill: none;
+                            stroke-width: 1.5;
+                            stroke: #000;
+                            stroke-opacity: 1;
+                          " class="stroke-shape" />
+                    </g>
+                    <path d="M5.031 10.063h12.938" style="fill: none" class="fills" />
+                    <g stroke-linejoin="round" class="strokes">
+                      <path d="M5.031 10.063h12.938" style="
+                            fill: none;
+                            stroke-width: 1.5;
+                            stroke: #000;
+                            stroke-opacity: 1;
+                          " class="stroke-shape" />
+                    </g>
+                    <path d="M7.296 2.984 11.5 7.188" style="fill: none" class="fills" />
+                    <g stroke-linejoin="round" class="strokes">
+                      <path d="M7.296 2.984 11.5 7.188" style="
+                            fill: none;
+                            stroke-width: 1.5;
+                            stroke: #000;
+                            stroke-opacity: 1;
+                          " class="stroke-shape" />
+                    </g>
+                    <path d="m5.37 5.37 4.693 4.693" style="fill: none" class="fills" />
+                    <g stroke-linejoin="round" class="strokes">
+                      <path d="m5.37 5.37 4.693 4.693" style="
+                            fill: none;
+                            stroke-width: 1.5;
+                            stroke: #000;
+                            stroke-opacity: 1;
+                          " class="stroke-shape" />
+                    </g>
+                  </g>
+                </svg>
+              </button>
+              <div id="toolbox__pencil-hover-label" class="tooltip" role="tooltip">
+                <p>Toggle paint with hover<kbd>H</kbd></p>
+              </div>
+              <button id="toolbox__grid-btn" class="select-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-grid-3x3">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M3 8h18" />
+                  <path d="M3 16h18" />
+                  <path d="M8 3v18" />
+                  <path d="M16 3v18" />
+                </svg>
+              </button>
+              <div id="toolbox__grid-label" class="tooltip" role="tooltip">
+                <p>Toggle lines grid<kbd>G</kbd></p>
+              </div>
+            </div>
+            <div class="toolbox__separator"></div>
+            <div class="toolbox__action-tool">
+              <button id="toolbox__delete-btn" class="action-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 7l16 0" />
+                  <path d="M10 11l0 6" />
+                  <path d="M14 11l0 6" />
+                  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                </svg>
+                Delete
+              </button>
+              <button id="toolbox__print-btn" class="action-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+                  <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                  <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
+                </svg>
+                Print
+              </button>
+            </div>
+          </div>
+          <div class="toolbox__tool-text-box">
+            <p class="toolbox__text">Tools</p>
+          </div>
+
+          <div class="toolbox__colors">
+            <div class="toolbox__colors-large">
+              <div id="toolbox__color-black" class="large-color-button" data-color="#000">
+                <div></div>
+              </div>
+              <div id="toolbox__color-black-label" class="tooltip" role="tooltip">
+                <p>Black</p>
+              </div>
+              <div id="toolbox__color-white" class="large-color-button" data-color="#fff">
+                <div></div>
+              </div>
+              <div id="toolbox__color-white-label" class="tooltip" role="tooltip">
+                <p>White</p>
+              </div>
+            </div>
+            <div class="toolbox__colors-small">
+              <div id="toolbox__color-zinc" class="small-color-button" data-color="#52525b">
+                <div></div>
+              </div>
+              <div id="toolbox__color-zinc-label" class="tooltip" role="tooltip">
+                <p>Zinc</p>
+              </div>
+              <div id="toolbox__color-red" class="small-color-button" data-color="#dc2626">
+                <div></div>
+              </div>
+              <div id="toolbox__color-red-label" class="tooltip" role="tooltip">
+                <p>Red</p>
+              </div>
+              <div id="toolbox__color-rose" class="small-color-button" data-color="#e11d48">
+                <div></div>
+              </div>
+              <div id="toolbox__color-rose-label" class="tooltip" role="tooltip">
+                <p>Rose</p>
+              </div>
+              <div id="toolbox__color-violet" class="small-color-button" data-color="#6d28d9">
+                <div></div>
+              </div>
+              <div id="toolbox__color-violet-label" class="tooltip" role="tooltip">
+                <p>Violet</p>
+              </div>
+              <div id="toolbox__color-yellow" class="small-color-button" data-color="#facc15">
+                <div></div>
+              </div>
+              <div id="toolbox__color-yellow-label" class="tooltip" role="tooltip">
+                <p>Yellow</p>
+              </div>
+              <div id="toolbox__color-blue" class="small-color-button" data-color="#3b82f6">
+                <div></div>
+              </div>
+              <div id="toolbox__color-blue-label" class="tooltip" role="tooltip">
+                <p>Blue</p>
+              </div>
+              <div id="toolbox__color-green" class="small-color-button" data-color="#22c55e">
+                <div></div>
+              </div>
+              <div id="toolbox__color-green-label" class="tooltip" role="tooltip">
+                <p>Green</p>
+              </div>
+              <div id="toolbox__color-orange" data-color="#ea580c" class="small-color-button">
+                <div></div>
+              </div>
+              <div id="toolbox__color-orange-label" class="tooltip" role="tooltip">
+                <p>Orange</p>
+              </div>
+              <div id="toolbox__color-brown" class="small-color-button" data-color="#b87155">
+                <div></div>
+              </div>
+              <div id="toolbox__color-brown-label" class="tooltip" role="tooltip">
+                <p>Brown</p>
+              </div>
+            </div>
+            <div class="toolbox__colors-gradient">
+              <div class="toolbox__color-gradient">
+                <input id="color-picker-tool" class="color-picker" type="color" data-color="" />
+                <div id="toolbox__color-custom-label" class="tooltip" role="tooltip">
+                  <p>Custom color</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="toolbox__color-text-box">
+            <p class="toolbox__text">Colors</p>
+          </div>
+          <div class="toolbox__helps">
+            <button id="toolbox__help-btn" class="action-button-vertical">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-help">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                <path d="M12 17l0 .01" />
+                <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+              </svg>
+              Help
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="drawable">
+      <div class="drawable__drawing"></div>
+    </main>
+    <footer class="footer">
+      <div class="footer__box">
+        <a href="https://github.com/osmarmora05" class="footer__link-pfp" target="_blank">
+          Created by osmarmora05
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+          </svg>
+        </a>
+        <div class="footer__slider-container">
+          <button id="footer__reset-btn" class="select-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-restore">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3.06 13a9 9 0 1 0 .49 -4.087" />
+              <path d="M3 4.001v5h5" />
+              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            </svg>
+          </button>
+          <div id="footer__reset-label" class="tooltip" role="tooltip">
+            <p>Reset</p>
+          </div>
+          <input type="range" class="footer__slider" min="1" max="64" value="24" step="1" />
+          <div class="tooltip footer__slider-tooltip">
+            <p>24x24</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

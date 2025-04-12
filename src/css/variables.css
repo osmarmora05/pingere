@@ -1,0 +1,23 @@
+:root {
+  --bg-normal: #fff8f6;
+  --bg-light: #ffede8;
+  --bg-dark: #d6bdb7;
+  --fg-color: #231917;
+  --border: #dac4be;
+  --accent-color: #8f4c38;
+  --color-zinc: #52525b;
+  --color-gray: #808080;
+  --color-white: #fff;
+  --color-red: #dc2626;
+  --color-rose: #e11d48;
+  --color-violet: #6d28d9;
+  --color-yellow: #facc15;
+  --color-blue: #3b82f6;
+  --color-green: #22c55e;
+  --color-orange: #ea580c;
+  --color-browm: #b87155;
+  --fs-1: 3rem;
+  --fs-2: 1.125rem;
+  --fs-p: 1rem;
+  --mg: 300px;
+}

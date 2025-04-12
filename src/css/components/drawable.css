@@ -1,0 +1,29 @@
+.drawable {
+  width: 100%;
+  height: calc(100% - 180px);
+  background-color: var(--bg-normal);
+  align-content: center;
+  overflow: auto;
+}
+
+.drawable__drawing {
+  max-width: 768px;
+  max-height: 924px;
+  min-width: 500px;
+  min-height: 650px;
+  width: 50%;
+  height: 90%;
+  border: 1px solid var(--border);
+  margin: 0 auto;
+}
+
+.drawable__drawing-row {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+.drawable__drawing-cell {
+  width: 100%;
+}

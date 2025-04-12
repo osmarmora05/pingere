@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Onest";
+    src: url("../assets/fonts/Onest/Onest-Regular.woff2") format("woff2");
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Onest";
+    font-display: swap;
+    src: url("../assets/fonts/Onest/Onest-Bold.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url("../assets/fonts/Pacifico/Pacifico-Regular.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 400;
+}

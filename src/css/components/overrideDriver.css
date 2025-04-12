@@ -1,0 +1,13 @@
+.driver-popover {
+  background-color: var(--bg-normal);
+  color: var(--fg-color);
+  & > * {
+    font-family: "Onest", sans-serif !important;
+  }
+}
+
+.driver-popover-prev-btn,
+.driver-popover-next-btn {
+  border-color: var(--border) !important;
+  background-color: var(--bg-light) !important;
+}
