@@ -42,7 +42,7 @@ This project is part of [The Odin Project](https://www.theodinproject.com/lesson
 
 ## 🎮 Demo
 
-- [Live demo here!]()
+- [Live demo here!](https://osmarmora05.github.io/pingere/)
 
 ## 🛠️Tech Stack
 
