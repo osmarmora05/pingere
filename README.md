@@ -35,7 +35,7 @@ This project is part of [The Odin Project](https://www.theodinproject.com/lesson
 - [tabler](https://tabler.io/icons)
 - [cocomaterial](https://cocomaterial.com/)
 
-### fonts
+### Fonts
 
 - [onest.md](https://onest.md/)
 - [Pacifico](https://fonts.google.com/specimen/Pacifico)
