@@ -284,9 +284,9 @@ export default class Drawable {
     this.#deleteGrid();
 
     if (this.#state.getProperty("showGrid")) {
-      this.#createGrid(this.#state.getProperty("gridSize"));
+      this.#createGrid(this.#lastSliderValue);
     } else {
-      this.#createGrid(this.#state.getProperty("gridSize"));
+      this.#createGrid(this.#lastSliderValue);
       this.#paintGridLines(false);
     }
   }
