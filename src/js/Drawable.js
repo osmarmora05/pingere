@@ -366,7 +366,10 @@ export default class Drawable {
           popover: declarePopoverContent(
             "Tools",
             "Pencil",
-            "drawing",
+            {
+              name: "drawing",
+              aspectRatio: "63/53",
+            },
             `The pencil tool colors
 the grid cells with
 the color you choose.`,
@@ -377,7 +380,10 @@ the color you choose.`,
           popover: declarePopoverContent(
             "Tools",
             "Eraser",
-            "eraser",
+            {
+              name: "eraser",
+              aspectRatio: "105/64",
+            },
             `The eraser tool removes 
 color from the cell you select.`,
           ),
@@ -387,7 +393,10 @@ color from the cell you select.`,
           popover: declarePopoverContent(
             "Tools",
             "Rainbow",
-            "rainbow",
+            {
+              name: "rainbow",
+              aspectRatio: "149/190",
+            },
             `The rainbow tool paints
 a grid cell in a random color.`,
           ),
@@ -397,7 +406,10 @@ a grid cell in a random color.`,
           popover: declarePopoverContent(
             "Tools",
             "Toggle Paint With Hover",
-            "toggle-paint-with-hover",
+            {
+              name: "toggle-paint-with-hover",
+              aspectRatio: "131/129",
+            },
             `The Toggle Paint With Hover Tool,
 when enabled, paints the grid cell as you hover overt it.
 When, disabled, the cell is painted as you click.`,
@@ -408,7 +420,10 @@ When, disabled, the cell is painted as you click.`,
           popover: declarePopoverContent(
             "Tools",
             "Toggle Lines Grid",
-            "toggle-lines-grid",
+            {
+              name: "toggle-lines-grid",
+              aspectRatio: "95/91",
+            },
             `The Toggle Grid Lines tool
 shows or hides the grid lines.`,
           ),
@@ -418,7 +433,10 @@ shows or hides the grid lines.`,
           popover: declarePopoverContent(
             "Colors",
             "",
-            "colors",
+            {
+              name: "colors",
+              aspectRatio: "74/65",
+            },
             `In the color section
 you can select a color and
 use it to paint a cell in the grid`,
@@ -429,7 +447,10 @@ use it to paint a cell in the grid`,
           popover: declarePopoverContent(
             "Resize",
             "",
-            "resize",
+            {
+              name: "resize",
+              aspectRatio: "317/150",
+            },
             `With this slider, you can change the size of the grid.`,
             "top",
             "start",
@@ -453,7 +474,7 @@ use it to paint a cell in the grid`,
     function declarePopoverContent(
       title,
       subtitle,
-      imgName,
+      img,
       description,
       side = "top",
       align = "center",
@@ -461,7 +482,7 @@ use it to paint a cell in the grid`,
       const subtitleHtml = subtitle ? `<h3>${subtitle}</h3>` : "";
       return {
         title: title,
-        description: `<img src="./src/assets/img/${imgName}.svg" style="width: 270px"/>${subtitleHtml}<p>${description}</p>`,
+        description: `<img src="./src/assets/img/${img.name}.svg" style="width: 270px; aspect-ratio: ${img.aspectRatio}"/>${subtitleHtml}<p>${description}</p>`,
         side: side,
         align: align,
       };
