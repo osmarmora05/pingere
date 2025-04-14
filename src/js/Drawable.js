@@ -283,10 +283,14 @@ export default class Drawable {
   #clearGrid() {
     this.#deleteGrid();
 
-    if (this.#state.getProperty("showGrid")) {
-      this.#createGrid(this.#lastSliderValue);
-    } else {
-      this.#createGrid(this.#lastSliderValue);
+    const value =
+      this.#lastSliderValue !== undefined
+        ? this.#lastSliderValue
+        : this.#sliderDefaultValue;
+
+    this.#createGrid(value);
+
+    if (!this.#state.getProperty("showGrid")) {
       this.#paintGridLines(false);
     }
   }
